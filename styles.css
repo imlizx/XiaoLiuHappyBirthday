@@ -1,3 +1,46 @@
+/* CSS变量 - 统一配色方案 */
+:root {
+    /* 主色调 */
+    --primary-color: #ff6b6b;
+    --primary-light: #ff9a9e;
+    --primary-lighter: #fecfef;
+    
+    /* 辅助色 */
+    --secondary-color: #f9f871;
+    --secondary-light: #ffd700;
+    
+    /* 中性色 */
+    --text-primary: #333;
+    --text-secondary: #666;
+    --text-light: #999;
+    
+    /* 背景色 */
+    --bg-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    --card-bg: rgba(255, 240, 245, 0.85);
+    
+    /* 尺寸变量 */
+    --border-radius-lg: 20px;
+    --border-radius-md: 15px;
+    --border-radius-sm: 10px;
+    
+    /* 间距变量 */
+    --spacing-xl: 40px;
+    --spacing-lg: 30px;
+    --spacing-md: 20px;
+    --spacing-sm: 15px;
+    --spacing-xs: 10px;
+    
+    /* 阴影变量 */
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    
+    /* 动画变量 */
+    --transition-fast: 0.3s ease;
+    --transition-normal: 0.5s ease;
+    --transition-slow: 0.8s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,8 +49,8 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-    color: #333;
+    background: var(--bg-gradient);
+    color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -15,30 +58,47 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: var(--spacing-md);
 }
 
 header {
     text-align: center;
-    padding: 30px 20px 40px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-lg);
     backdrop-filter: blur(10px);
 }
 
 h1 {
     font-size: 3rem;
-    color: #ff6b6b;
-    margin-bottom: 10px;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
 }
 
 .subtitle {
     font-size: 1.5rem;
-    color: #666;
-    margin-bottom: 20px;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
 }
 
 .birthday-cake {
@@ -235,49 +295,46 @@ h1 {
 }
 
 .message {
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-lg);
     backdrop-filter: blur(10px);
 }
 
 .message p {
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-md);
     text-align: center;
+    line-height: 1.8;
+    color: var(--text-primary);
 }
 
 .gallery {
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-lg);
     backdrop-filter: blur(10px);
-}
-
-.gallery h2 {
-    text-align: center;
-    color: #ff6b6b;
-    margin-bottom: 20px;
 }
 
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
 }
 
 .photo {
     width: 100%;
     height: 200px;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    border-radius: 10px;
+    border-radius: var(--border-radius-sm);
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     cursor: pointer;
     position: relative;
 }
@@ -291,31 +348,28 @@ h1 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+    transition: opacity var(--transition-normal);
 }
 
-/* 图片加载失败样式 */
-.photo img::after {
-    content: attr(alt);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* 图片加载效果优化 */
+.photo::before {
+    content: '';
+    display: block;
     width: 100%;
     height: 100%;
-    background: #f0f0f0;
-    color: #666;
-    font-size: 14px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -1;
 }
 
 /* 优化响应式布局 */
 @media (max-width: 768px) {
     .photo-grid {
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 15px;
+        gap: var(--spacing-sm);
     }
     
     .photo {
@@ -326,7 +380,7 @@ h1 {
 @media (max-width: 480px) {
     .photo-grid {
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 10px;
+        gap: var(--spacing-xs);
     }
     
     .photo {
@@ -335,25 +389,21 @@ h1 {
 }
 
 .countdown {
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-lg);
     backdrop-filter: blur(10px);
     text-align: center;
-}
-
-.countdown h2 {
-    color: #ff6b6b;
-    margin-bottom: 20px;
 }
 
 .countdown-timer {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: var(--spacing-md);
     flex-wrap: wrap;
+    margin-top: var(--spacing-md);
 }
 
 .timer-item {
@@ -364,83 +414,178 @@ h1 {
     display: block;
     font-size: 3rem;
     font-weight: bold;
-    color: #ff6b6b;
+    color: var(--primary-color);
+    line-height: 1.2;
 }
 
 /* 生日祝福样式 */
 .birthday-wish {
     text-align: center;
-    padding: 30px;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-    border-radius: 20px;
-    margin-top: 20px;
+    padding: var(--spacing-lg);
+    background: var(--bg-gradient);
+    border-radius: var(--border-radius-lg);
+    margin-top: var(--spacing-md);
     animation: bounce 1s ease-in-out infinite;
+    box-shadow: var(--shadow-md);
 }
 
 .birthday-wish h3 {
     font-size: 2.5rem;
-    color: #ff6b6b;
-    margin-bottom: 15px;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .wish-text {
     font-size: 1.2rem;
-    color: #666;
+    color: var(--text-secondary);
     font-weight: bold;
 }
 
+.timer-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-xs);
+}
+
+.music-player {
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px);
+    margin-bottom: var(--spacing-lg);
+}
+
+.music-player h3 {
+    margin-bottom: var(--spacing-md);
+}
+
+#birthdayMusic {
+    width: 100%;
+    max-width: 500px;
+    height: 50px;
+    border-radius: var(--border-radius-md);
+    margin: 0 auto;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#playHint {
+    margin-top: var(--spacing-xs);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: var(--spacing-md);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: var(--spacing-lg);
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal.active {
+    display: flex;
+    animation: fadeIn var(--transition-normal);
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+    z-index: 1001;
+}
+
+.close:hover {
+    transform: scale(1.2);
+    color: var(--primary-color);
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    animation: zoomIn var(--transition-normal);
+}
+
+.caption {
+    text-align: center;
+    color: white;
+    margin-top: var(--spacing-sm);
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* 新增模态框动画 */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 响应式设计 - 优化文字显示 */
 @media (max-width: 768px) {
-    .birthday-wish h3 {
+    /* 标题响应式 */
+    h1 {
         font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+        line-height: 1.4;
+    }
+    
+    /* 正文响应式 */
+    .message p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 15px;
     }
     
     .wish-text {
         font-size: 1rem;
     }
-}
-
-@media (max-width: 480px) {
-    .birthday-wish h3 {
-        font-size: 1.8rem;
-    }
     
-    .wish-text {
-        font-size: 0.9rem;
-    }
-}
-
-.timer-label {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.music-player {
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    color: #666;
-    font-size: 0.9rem;
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
-    
-    .subtitle {
-        font-size: 1.2rem;
-    }
-    
+    /* 蛋糕响应式 */
     .birthday-cake {
         width: 180px;
         height: 150px;
@@ -480,37 +625,74 @@ footer {
         height: 25px;
     }
     
-    .message p {
-        font-size: 1rem;
-    }
-    
+    /* 图片网格响应式 */
     .photo-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
+        gap: var(--spacing-sm);
     }
     
     .photo {
         height: 150px;
     }
     
+    /* 倒计时响应式 */
     .timer-value {
         font-size: 1.5rem;
+    }
+    
+    .timer-label {
+        font-size: 0.8rem;
+    }
+    
+    /* 音乐播放器响应式 */
+    #birthdayMusic {
+        max-width: 100%;
+        height: 45px;
+    }
+    
+    #playHint {
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
+    /* 标题响应式 */
     h1 {
         font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
     }
     
     .subtitle {
         font-size: 1rem;
+        line-height: 1.4;
     }
     
+    /* 正文响应式 */
+    .message p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 12px;
+        padding: 0 5px;
+    }
+    
+    .wish-text {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    /* 蛋糕响应式 */
     .birthday-cake {
         width: 150px;
         height: 125px;
-        margin: 60px auto 0;
+        margin: 40px auto 0;
     }
     
     .cake-layer.bottom {
@@ -546,29 +728,69 @@ footer {
         height: 20px;
     }
     
-    .message {
-        padding: 20px;
+    /* 区块内边距响应式 */
+    .message,
+    .gallery,
+    .countdown,
+    .music-player {
+        padding: 20px 15px;
     }
     
-    .gallery {
-        padding: 20px;
-    }
-    
-    .countdown {
-        padding: 20px;
-    }
-    
+    /* 图片网格响应式 */
     .photo-grid {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 10px;
+        gap: var(--spacing-xs);
     }
     
     .photo {
         height: 120px;
     }
     
+    /* 倒计时响应式 */
     .timer-value {
         font-size: 1.2rem;
+    }
+    
+    .timer-label {
+        font-size: 0.75rem;
+    }
+    
+    /* 音乐播放器响应式 */
+    #birthdayMusic {
+        max-width: 100%;
+        height: 40px;
+    }
+    
+    #playHint {
+        font-size: 0.75rem;
+    }
+    
+    /* 页脚响应式 */
+    footer {
+        font-size: 0.8rem;
+        padding: 15px;
+    }
+    
+    /* 生日祝福响应式 */
+    .birthday-wish h3 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .birthday-wish {
+        padding: 20px 15px;
+    }
+    
+    /* 模态框响应式 */
+    .caption {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    
+    .close {
+        font-size: 25px;
+        top: 15px;
+        right: 20px;
     }
 }
 
